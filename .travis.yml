@@ -7,7 +7,6 @@ go:
     - 1.9.x
 
 env:
-  - BUILD_TYPE=Tests
   - BUILD_TYPE=Debian
   - BUILD_TYPE=Coverage
 
@@ -28,9 +27,6 @@ script:
     - go get github.com/golang/mock/mockgen
     - |
       case "${BUILD_TYPE}" in
-        Tests)
-          make all
-          ;;
         Debian)
           make all
           GO=$(which go) make deb
